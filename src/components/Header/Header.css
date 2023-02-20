@@ -1,7 +1,36 @@
+.header {
+  box-shadow: 0 4px 8px 4px rgba(49,49,49,.1);
+  background-color: white;
+}
+
 .header__container {
   max-width: 1140px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 20px 0;
+}
+
+.header__title {
+  margin: 0;
+}
+
+.header__theme-button {
+  display: block;
+  position: relative;
+  background-color: transparent;
+  border: none
+}
+
+.header__theme-button::before {
+  content: " ";
+  position: absolute;
+  background-image: url('../../images/icon-moon.svg');
+  width: 15px;
+  height: 15px;
+  left: -20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }

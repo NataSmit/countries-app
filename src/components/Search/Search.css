@@ -1,0 +1,22 @@
+.serach {
+  padding-top: 50px;
+}
+
+.search__container {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.search__input {
+  background-image: url('../../images/icon-search.svg');
+  background-repeat: no-repeat;
+  background-position: 20px;
+  padding: 10px 0 10px 60px;
+  border: none;
+  box-shadow: 0 0 12px -5px rgb(0 0 0 / 20%);
+  width: 400px;
+  border-radius: 5px;
+}
+
