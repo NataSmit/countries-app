@@ -5,3 +5,32 @@
   width: 250px;
   box-sizing: border-box;
 }
+
+.card__body {
+  padding: 20px;
+  text-align: left;
+}
+
+.card__title {
+  font-size: 20px;
+  margin: 0 0 15px 0;
+}
+
+.card__info_bold {
+  font-weight: 600;
+}
+
+.card__image {
+  height: 150px;
+  overflow: hidden;
+}
+
+.card__image-item {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card__info {
+  margin: 0 0 5px 0;
+}
