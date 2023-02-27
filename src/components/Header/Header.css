@@ -1,6 +1,6 @@
 .header {
-  box-shadow: 0 4px 8px 4px rgba(49,49,49,.1);
-  background-color: white;
+  box-shadow: var(--box-shadow);
+  background-color: var(--bg-color-items);
 }
 
 .header__container {
@@ -20,7 +20,13 @@
   display: block;
   position: relative;
   background-color: transparent;
-  border: none
+  border: none;
+  color: inherit;
+}
+
+.header__theme-button:hover {
+  cursor: pointer;
+
 }
 
 .header__theme-button::before {

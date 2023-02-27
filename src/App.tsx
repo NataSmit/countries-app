@@ -6,11 +6,16 @@ import Header from './components/Header/Header';
 import Search from './components/Search/Search';
 import Main from './components/Main/Main';
 import CountryCard from './components/CountryCard/CountryCard';
+import { useTheme } from './hooks/useTheme';
 
 function App() {
-
+  const {theme, setTheme} = useTheme()
   const [countries, setCountries] = useState<Country[]>([])
   const [filteredCountries, setFilteredCountries] = useState<Country[]>([])
+
+  function toggleTheme() {
+    setTheme( theme === 'light' ? 'dark' : 'light')
+  }
 
   useEffect(() => {
     fetchCountries();
@@ -24,12 +29,11 @@ function App() {
     setCountries(response)
   }
 
-  
 
   return (
     <div className="App">
       <Root>
-        <Header />
+        <Header toggleTheme={toggleTheme} />
         <Search countries={countries} setFilteredCountries={setFilteredCountries} />
         <Main filteredCountries={filteredCountries} />
       </Root>

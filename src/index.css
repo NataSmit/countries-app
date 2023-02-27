@@ -1,3 +1,21 @@
+html[data-theme='light'] {
+  --background-color-body: #fafafa;
+  --bg-color-items: white;
+  --color-text: black;
+  --box-shadow: 0 4px 8px 4px rgba(49,49,49,.1);
+}
+
+html[data-theme='dark'] {
+  --background-color-body: rgb(32, 44, 55);
+  --bg-color-items: rgb(43, 57, 69);
+  --color-text: white;
+  --box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 3px;
+}
+
+
+
+
+
 @import url('./vendor/normalize.css');
 @import url('./vendor/fonts/fonts.css');
 @import url('./components/Root/Root.css');

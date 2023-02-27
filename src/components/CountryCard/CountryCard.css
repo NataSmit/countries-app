@@ -1,9 +1,10 @@
 .card {
-  box-shadow: 0 0 12px -5px rgb(0 0 0 / 20%);
+  box-shadow: var(--box-shadow);
   border-radius: 8px;
-  background-color: white;
+  background-color: var(--bg-color-items);
   width: 250px;
   box-sizing: border-box;
+  border-radius: 10px;
 }
 
 .card__body {
@@ -23,6 +24,7 @@
 .card__image {
   height: 150px;
   overflow: hidden;
+  border-radius: 10px;
 }
 
 .card__image-item {

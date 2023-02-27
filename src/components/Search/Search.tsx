@@ -74,7 +74,8 @@ export default function Search({countries, setFilteredCountries}: ISearchProps) 
           <input 
           value={searchValue} 
           onChange={handleSearchInput}
-          className='search__input' type="text" 
+          className='search__input' 
+          type="text" 
           placeholder='Search for a country...' 
           />
         </form>
@@ -92,7 +93,9 @@ export default function Search({countries, setFilteredCountries}: ISearchProps) 
             borderColor: state.isFocused ? 'grey' : 'transparent',
             boxShadow: '0 0 12px -5px rgb(0 0 0 / 20%)',
             padding: '3px 0',
-            minWidth: '150px'
+            minWidth: '150px',
+            backgroundColor: 'var(--bg-color-items)',
+            color: 'var(--color-text)'
           }),
         }}/>
       </div>
