@@ -3,14 +3,25 @@ import CountryCard from '../CountryCard/CountryCard';
 import { Country } from '../../types/country';
 
 interface IMainProps {
-  countries: Country[]
+  filteredCountries: Country[]
 }
 
-export default function Main({countries}: IMainProps) {
+export default function Main({filteredCountries}: IMainProps) {
+
+  if (filteredCountries.length === 0) {
+    try {
+      filteredCountries = JSON.parse(localStorage.getItem('allCountries') as string) 
+    } catch (err) {
+       console.log(err)
+    }
+
+  }
+
+
   return (
     <main className='main'>
       <ul className='main__container'>
-         {countries.map((country) => (
+         {filteredCountries.map((country) => (
            <CountryCard country={country} key={country.name.common}/>
          ))}
       </ul>

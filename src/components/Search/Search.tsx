@@ -5,10 +5,10 @@ import { Option, Country } from '../../types/country'
 
 interface ISearchProps {
   countries: Country[],
-  setCountries: React.Dispatch<React.SetStateAction<Country[]>>
+  setFilteredCountries: React.Dispatch<React.SetStateAction<Country[]>>
 }
 
-export default function Search({countries, setCountries}: ISearchProps) {
+export default function Search({countries, setFilteredCountries}: ISearchProps) {
 
   const options: Option[] = [
     { value: 'Africa', label: 'Africa' },
@@ -45,20 +45,25 @@ export default function Search({countries, setCountries}: ISearchProps) {
   }
 
   console.log(searchValue, region)
+  console.log('countries', countries)
 
   function filterCountries(searchValue: string, region: Option | undefined) {
+
+    console.log('function filterCountries works')
     let filteredCountries = [...countries]
 
     if (searchValue) {
-      filteredCountries = filteredCountries.filter((country) => country.name.official.includes(searchValue))
+      filteredCountries = filteredCountries.filter((country) => country.name.official.toLowerCase().includes(searchValue.toLowerCase()))
     }
     
     if (region) {
-      const value = region.value || '';
+      const value = region.value;
       filteredCountries = filteredCountries.filter((country) => country.region.includes(value))
     } 
+
+    console.log('filteredCountries', filteredCountries)
     
-    setCountries(filteredCountries)
+    setFilteredCountries(filteredCountries)
   }
 
   

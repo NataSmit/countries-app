@@ -10,6 +10,7 @@ import CountryCard from './components/CountryCard/CountryCard';
 function App() {
 
   const [countries, setCountries] = useState<Country[]>([])
+  const [filteredCountries, setFilteredCountries] = useState<Country[]>([])
 
   useEffect(() => {
     fetchCountries();
@@ -19,18 +20,18 @@ function App() {
     const data = await fetch('https://restcountries.com/v3.1/all');
     console.log('data', data)
     const response = await data.json()
+    localStorage.setItem('allCountries', JSON.stringify(response))
     setCountries(response)
   }
 
   
 
-
   return (
     <div className="App">
       <Root>
         <Header />
-        <Search countries={countries} setCountries={setCountries} />
-        <Main countries={countries} />
+        <Search countries={countries} setFilteredCountries={setFilteredCountries} />
+        <Main filteredCountries={filteredCountries} />
       </Root>
     </div>
   );
