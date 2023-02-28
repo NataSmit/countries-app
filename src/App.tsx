@@ -33,7 +33,7 @@ function App() {
   return (
     <div className="App">
       <Root>
-        <Header toggleTheme={toggleTheme} />
+        <Header toggleTheme={toggleTheme} theme={theme} />
         <Search countries={countries} setFilteredCountries={setFilteredCountries} />
         <Main filteredCountries={filteredCountries} />
       </Root>

@@ -32,9 +32,9 @@
 .header__theme-button::before {
   content: " ";
   position: absolute;
-  background-image: url('../../images/icon-moon.svg');
-  width: 15px;
-  height: 15px;
+  background-image: var(--bg-image);
+  width: var(--theme-icon-width);
+  height: var(--theme-icon-height);
   left: -20px;
   background-position: center;
   background-repeat: no-repeat;

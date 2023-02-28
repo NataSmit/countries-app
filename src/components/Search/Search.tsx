@@ -87,6 +87,15 @@ export default function Search({countries, setFilteredCountries}: ISearchProps) 
         placeholder="Filter by Region" 
         isSearchable={false} 
         autoFocus={true}
+        theme={(theme) => ({
+          ...theme,
+          colors: {
+            ...theme.colors,
+            text: 'blue',
+            primary25: 'var(--select-hover)',
+            primary: 'black'
+          },
+        })}
         styles={{
           control: (baseStyles, state) => ({
             ...baseStyles,

@@ -22,3 +22,11 @@
   color: inherit;
 }
 
+.css-1nmdiq5-menu {
+  background-color: var(--bg-color-items) !important;
+  color: var(--color-text);
+}
+
+.css-1dimb5e-singleValue {
+  color: var(--color-text) !important;
+}

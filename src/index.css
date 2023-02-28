@@ -3,6 +3,10 @@ html[data-theme='light'] {
   --bg-color-items: white;
   --color-text: black;
   --box-shadow: 0 4px 8px 4px rgba(49,49,49,.1);
+  --select-hover: lightBlue;
+  --bg-image: url('./images/icon-moon.svg');
+  --theme-icon-width: 15px;
+  --theme-icon-height: 15px;
 }
 
 html[data-theme='dark'] {
@@ -10,6 +14,10 @@ html[data-theme='dark'] {
   --bg-color-items: rgb(43, 57, 69);
   --color-text: white;
   --box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 3px;
+  --select-hover: blue;
+  --bg-image: url('./images/icons8-sun(1).svg');
+  --theme-icon-width: 20px;
+  --theme-icon-height: 20px;
 }
 
 
