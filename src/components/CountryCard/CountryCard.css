@@ -5,6 +5,8 @@
   width: 250px;
   box-sizing: border-box;
   border-radius: 10px;
+  height: 100%;
+  
 }
 
 .card__body {

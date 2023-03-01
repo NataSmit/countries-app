@@ -9,7 +9,8 @@ export type Country = {
   tld: string | string[],
   languages: string | object,
   borders: string[],
-  flags: Flag
+  flags: Flag,
+  cca2: string
 }
 
 type Name = {

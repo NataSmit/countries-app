@@ -1,6 +1,7 @@
 import React from 'react';
 import CountryCard from '../CountryCard/CountryCard';
 import { Country } from '../../types/country';
+import {Link} from 'react-router-dom'
 
 interface IMainProps {
   filteredCountries: Country[]
@@ -22,7 +23,10 @@ export default function Main({filteredCountries}: IMainProps) {
     <main className='main'>
       <ul className='main__container'>
          {filteredCountries.map((country) => (
-           <CountryCard country={country} key={country.name.common}/>
+            <Link className='main__country-link' to={`/${country.cca2}`}>
+              <CountryCard country={country} key={country.name.common}/>
+            </Link>
+           
          ))}
       </ul>
       
