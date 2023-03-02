@@ -16,11 +16,12 @@ export type Country = {
 type Name = {
   common: string,
   official: string,
-  nativeName: object
+  nativeName: NativeName
 }
 
 type NativeName = {
-  
+  official: string,
+  common: string
 }
 
 type Flag = {

@@ -1,6 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useLayoutEffect} from 'react';
 import {useParams} from 'react-router-dom';
 import { Country } from '../../types/country';
+import InfoCard from '../InfoCard/InfoCard';
 
 
 export default function CountryPge() {
@@ -11,15 +12,15 @@ export default function CountryPge() {
   async function fetchCountry(val: string) {
     const res = await fetch(`https://restcountries.com/v3.1/alpha/${val}`)
     const data = await res.json()
-    console.log('data page', data)
-    setCountry(data)
+   
+    setCountry(data[0])
   }
 
   useEffect(() => {
     fetchCountry(code)
   }, [code])
 
-
+  console.log('country', country)
 
   return (
     <div className='country-page'>
@@ -27,17 +28,8 @@ export default function CountryPge() {
         <div className='country-page__btn-container'>
           <button className='country-page__btn'>Back</button>
         </div>
-        <div className='country-page__body'>
-          <div className='country-page__flag'>
-            <img src={country?.flags.png} alt={country?.flags.alt} />
-          </div>
-          <div className='country-page__info'>
-            <h1 className='country-page__title'></h1>
-            <div className='country-page__details'></div>
-            <div className='country-page__border'></div>
-          </div>
-        </div>
         
+      {country?.name.common && < InfoCard country={country} />}  
       </div>
 
     </div>

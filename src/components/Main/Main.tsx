@@ -23,8 +23,8 @@ export default function Main({filteredCountries}: IMainProps) {
     <main className='main'>
       <ul className='main__container'>
          {filteredCountries.map((country) => (
-            <Link className='main__country-link' to={`/${country.cca2}`}>
-              <CountryCard country={country} key={country.name.common}/>
+            <Link className='main__country-link' to={`/${country.cca2}`} key={country.name.common}>
+              <CountryCard country={country} />
             </Link>
            
          ))}
