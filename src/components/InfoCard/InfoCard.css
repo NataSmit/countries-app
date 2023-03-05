@@ -11,7 +11,8 @@
 
 .info-card__flag-img {
   width: 100%;
-  
+  object-fit: contain;
+  object-position: center;
 }
 
 .info-card__details {
@@ -35,4 +36,26 @@
 
 .info-card__subtitle_bold {
   font-weight: 700;
+}
+
+.info-card__border-country {
+  border: 1px solid rgb(236, 232, 232);
+  padding: 5px 15px;
+  margin: 0 10px 7px 0;
+  border-radius: 4px;
+  background-color: var(--bg-color-items);
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.info-card__border {
+  display: flex;
+  align-items: center;
+  padding: 10px 0 0 0;
+}
+
+.info-card__border-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 5px;
 }

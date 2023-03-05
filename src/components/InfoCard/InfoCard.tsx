@@ -1,5 +1,7 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { Country } from '../../types/country'
+import { useNavigate } from 'react-router-dom'
+
 
 interface IInfoCardProps {
   country: Country
@@ -9,6 +11,20 @@ export default function InfoCard({country}: IInfoCardProps) {
 
   const languagesArr = Object.values(country.languages) 
   //console.log(country.currencies.name)
+  const navigate = useNavigate()
+  const borders = country.borders.join(',')
+  const [borderCountries, setBorderCountries] = useState<Country[]>([])
+
+  useEffect(()=> {
+    fetchBorders()
+  }, [borders])
+
+  async function fetchBorders() {
+    const res = await fetch(`https://restcountries.com/v3.1/alpha?codes=${borders}`)
+    const data = await res.json()
+    console.log('borders', data)
+    setBorderCountries(data)
+  }
 
   console.log('country.currencies', country.currencies)
   return (
@@ -54,11 +70,16 @@ export default function InfoCard({country}: IInfoCardProps) {
         </div>
         <div className='info-card__border'>
           <p className='info-card__subtitle'>
-            <span className='info-card__subtitle_bold'>Border Countries:</span>  
-            {country.borders.map((b) => (
-              <span> {b} </span>
-            ))}
+            <span className='info-card__subtitle_bold'>Border Countries:</span> 
+            
           </p>
+          <div className='info-card__border-list'>
+            {borderCountries.map((c) => (
+              <div className='info-card__border-country' onClick={()=> navigate(`/${c.cca2}`)}> 
+                {c.name.common} 
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

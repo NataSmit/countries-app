@@ -1,11 +1,12 @@
 import React, {useState, useEffect, useLayoutEffect} from 'react';
-import {useParams} from 'react-router-dom';
+import {useParams, useNavigate} from 'react-router-dom';
 import { Country } from '../../types/country';
 import InfoCard from '../InfoCard/InfoCard';
 
 
 
 export default function CountryPge() {
+  const navigate = useNavigate()
   const { code } = useParams() as {code: string}
   console.log('code', code)
   const [country, setCountry] = useState<Country>()
@@ -23,11 +24,13 @@ export default function CountryPge() {
 
   console.log('country', country)
 
+
+
   return (
     <div className='country-page'>
       <div className='country-page__container'>
         <div className='country-page__btn-container'>
-          <button className='country-page__btn'>Back</button>
+          <button className='country-page__btn' onClick={()=> navigate(-1)}>Back</button>
         </div>
         <div className='country-page__body'>
           {country?.name.common && < InfoCard country={country} />}
