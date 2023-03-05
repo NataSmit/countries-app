@@ -1,0 +1,23 @@
+.country-page__container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.country-page__btn-container {
+  text-align: left;
+  padding: 60px 0;
+}
+
+.country-page__btn {
+  border: none;
+  background-color: var(--bg-color-items);
+  padding: 10px 40px;
+  border-radius: 5px;
+  transition: opacity 0.3s ease;
+  box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
+}
+
+.country-page__btn:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}

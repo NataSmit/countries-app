@@ -1,0 +1,38 @@
+.info-card__body {
+  display: flex;
+  max-width: 1140px;
+  
+}
+
+.info-card__flag {
+  flex: 0 0 40%;
+  
+}
+
+.info-card__flag-img {
+  width: 100%;
+  
+}
+
+.info-card__details {
+  display: flex;
+ 
+}
+
+.info-card__info {
+  flex: 0 0 60%;
+  padding-left: 90px;
+  text-align: left;
+}
+
+.info-card__section1 {
+  flex: 0 0 50%;
+}
+
+.info-card__section2 {
+  flex: 0 0 50%;
+}
+
+.info-card__subtitle_bold {
+  font-weight: 700;
+}

@@ -4,6 +4,7 @@ import { Country } from '../../types/country';
 import InfoCard from '../InfoCard/InfoCard';
 
 
+
 export default function CountryPge() {
   const { code } = useParams() as {code: string}
   console.log('code', code)
@@ -28,8 +29,10 @@ export default function CountryPge() {
         <div className='country-page__btn-container'>
           <button className='country-page__btn'>Back</button>
         </div>
+        <div className='country-page__body'>
+          {country?.name.common && < InfoCard country={country} />}
+        </div>
         
-      {country?.name.common && < InfoCard country={country} />}  
       </div>
 
     </div>

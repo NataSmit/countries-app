@@ -5,9 +5,9 @@ export type Country = {
   region: string,
   capital: string | string[],
   subregion: string,
-  currencies: string | object,
+  currencies: CurrencyObj,
   tld: string | string[],
-  languages: string | object,
+  languages: Language,
   borders: string[],
   flags: Flag,
   cca2: string
@@ -34,3 +34,17 @@ export type Option = {
   value: string,
   label: string
 }
+
+type Language = {
+  [key: string]: string
+}
+
+type Currency = {
+  name: string,
+  symbol: string
+}
+
+interface CurrencyObj  {
+  [key: string] : Currency
+}
+
