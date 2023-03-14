@@ -57,5 +57,5 @@
 .info-card__border-list {
   display: flex;
   flex-wrap: wrap;
-  margin-left: 5px;
+  margin-left: 10px;
 }
