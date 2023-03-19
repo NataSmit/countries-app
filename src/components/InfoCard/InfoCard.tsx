@@ -10,9 +10,9 @@ interface IInfoCardProps {
 export default function InfoCard({country}: IInfoCardProps) {
 
   const languagesArr = Object.values(country.languages) 
-  //console.log(country.currencies.name)
+ 
   const navigate = useNavigate()
-  const borders = country.borders.join(',')
+  const borders = country.borders ? country.borders.join(',') : ''
   const [borderCountries, setBorderCountries] = useState<Country[]>([])
 
   useEffect(()=> {
@@ -20,13 +20,30 @@ export default function InfoCard({country}: IInfoCardProps) {
   }, [borders])
 
   async function fetchBorders() {
-    const res = await fetch(`https://restcountries.com/v3.1/alpha?codes=${borders}`)
-    const data = await res.json()
-    console.log('borders', data)
-    setBorderCountries(data)
+    try {
+      const res = await fetch(`https://restcountries.com/v3.1/alpha?codes=${borders}`)
+      const data = await res.json()
+      console.log('borders', data)
+      setBorderCountries(data)
+    } catch (err) {
+      console.log(err)
+    } 
   }
 
-  console.log('country.currencies', country.currencies)
+  //country.currencies и country.name.nativeName имеют динамические свойства в объекте, поэтому 
+  //использую переменную
+ 
+  const dynamicCurrency = Object.keys(country.currencies)[0]
+  console.log('currency', dynamicCurrency)
+  const currencyValue = country.currencies[dynamicCurrency].name
+  console.log('country.currencies', country.currencies[dynamicCurrency].name)
+  console.log('country.nativeName', country.name.nativeName)
+  const dynamicName = Object.keys(country.name.nativeName)[0]
+  console.log('dynamicName', dynamicName)
+  console.log('nativeNmae', country.name.nativeName[dynamicName].common)
+  const nativeNameCommon = country.name.nativeName[dynamicName].common
+
+
   return (
     <div className='info-card__body'>
       <div className='info-card__flag'>
@@ -37,7 +54,7 @@ export default function InfoCard({country}: IInfoCardProps) {
         <div className='info-card__details'>
           <div className='info-card__facts info-card__section1'>
             <p className='info-card__subtitle'>
-              <span className='info-card__subtitle_bold'>Native Name:</span> {country.name.nativeName.common}
+              <span className='info-card__subtitle_bold'>Native Name:</span> {nativeNameCommon}
             </p>
             <p className='info-card__subtitle'>
               <span className='info-card__subtitle_bold'>Population:</span> {country.population}
@@ -58,12 +75,12 @@ export default function InfoCard({country}: IInfoCardProps) {
               <span className='info-card__subtitle_bold'>Top Level Domain:</span> {country.tld}
             </p>
             <p className='info-card__subtitle'>
-              <span className='info-card__subtitle_bold'>Currencies:</span> {country.currencies.currencies?.name}
+              <span className='info-card__subtitle_bold'>Currencies:</span> {currencyValue}
             </p>
             <p className='info-card__subtitle'>
               <span className='info-card__subtitle_bold'>Languages:</span>  
               {languagesArr.map((l) => (
-                <span> {l} </span>
+                <span> {l}, </span>
               ))}
             </p>
           </div>

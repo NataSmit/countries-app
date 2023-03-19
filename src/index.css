@@ -33,3 +33,4 @@ html[data-theme='dark'] {
 @import url('./components/CountryCard/CountryCard.css');
 @import url('./components/CountryPage/CountryPage.css');
 @import url('./components/InfoCard/InfoCard.css');
+@import url('./components/Error/Error.css')

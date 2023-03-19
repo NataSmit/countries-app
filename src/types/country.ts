@@ -16,7 +16,12 @@ export type Country = {
 type Name = {
   common: string,
   official: string,
-  nativeName: NativeName
+  nativeName: NativeNameLang
+}
+
+type NativeNameLang = {
+  [key: string]: NativeName
+  
 }
 
 type NativeName = {
@@ -45,6 +50,6 @@ type Currency = {
 }
 
 interface CurrencyObj  {
-  [key: string] : Currency
+  [key: string]: Currency
 }
 

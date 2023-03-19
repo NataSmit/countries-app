@@ -10,11 +10,21 @@ import CountryPage from './components/CountryPage/CountryPage';
 import { useTheme } from './hooks/useTheme';
 import {Routes, Route} from 'react-router-dom';
 import {ALL_COUNTRIES_URL} from './api/api'
+import Preloader from './components/Preloader/Preloader';
 
 function App() {
   const {theme, setTheme} = useTheme()
   const [countries, setCountries] = useState<Country[]>([])
   const [filteredCountries, setFilteredCountries] = useState<Country[]>([])
+  const [isLoading, setIsLoding] = useState(false)
+  type Error = {
+    state: boolean,
+    message: string
+  }
+  const [error, setError] = useState<Error>({
+    state: false,
+    message: '' 
+  })
 
   useEffect(() => {
     fetchCountries();
@@ -25,15 +35,23 @@ function App() {
   }
 
   async function fetchCountries() {
-    console.log('I m working')
-    const data = await fetch('https://restcountries.com/v3.1/all');
-    const response = await data.json()
-    console.log('res', response)
-    localStorage.setItem('allCountries', JSON.stringify(response))
-    setCountries(response)
+    try {
+      setIsLoding(true)
+      const data = await fetch('https://restcountries.com/v3.1/all');
+      const response = await data.json()
+      localStorage.setItem('allCountries', JSON.stringify(response))
+      setCountries(response)
+    } catch (err: any) {
+      console.log(err)
+      setError({
+        state: true,
+        message: err
+      })
+    } finally {
+      setIsLoding(false)
+    }
+    
   }
-
-
 
 
   return (
@@ -44,6 +62,7 @@ function App() {
           <Route path='/' element={
             <Home>
               <Search countries={countries} setFilteredCountries={setFilteredCountries} />
+              <Preloader isLoading={isLoading} />
               <Main filteredCountries={filteredCountries} />
             </Home>
           } 
