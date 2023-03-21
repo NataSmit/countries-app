@@ -91,11 +91,15 @@ export default function InfoCard({country}: IInfoCardProps) {
             
           </p>
           <div className='info-card__border-list'>
-            {borderCountries.map((c) => (
-              <div className='info-card__border-country' onClick={()=> navigate(`/${c.cca2}`)}> 
-                {c.name.common} 
-              </div>
-            ))}
+            { borderCountries.length > 0 ? 
+              borderCountries.map((c) => (
+                <div className='info-card__border-country' onClick={()=> navigate(`/${c.cca2}`)}> 
+                  {c.name.common} 
+                </div>
+              ))
+              : 'no borders'
+            }
+            
           </div>
         </div>
       </div>

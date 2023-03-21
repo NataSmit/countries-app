@@ -1,5 +1,5 @@
 .serach {
-  padding-top: 50px;
+  padding: 50px 10px 0 10px;
 }
 
 .search__container {
@@ -29,4 +29,19 @@
 
 .css-1dimb5e-singleValue {
   color: var(--color-text) !important;
+}
+
+
+@media (max-width: 680px) {
+  .search__container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .search__input {
+    margin-bottom: 30px;
+    width: 250px;
+  }
+ 
+  
 }

@@ -59,3 +59,7 @@
   flex-wrap: wrap;
   margin-left: 10px;
 }
+
+.info-card__title {
+  margin-top: 0;
+}

@@ -44,12 +44,9 @@ export default function Search({countries, setFilteredCountries}: ISearchProps) 
     setSearchValue(e.target.value)
   }
 
-  console.log(searchValue, region)
-  console.log('countries', countries)
 
   function filterCountries(searchValue: string, region: Option | undefined) {
 
-    console.log('function filterCountries works')
     let filteredCountries = [...countries]
 
     if (searchValue) {

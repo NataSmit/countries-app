@@ -35,20 +35,27 @@ function App() {
   }
 
   async function fetchCountries() {
-    try {
-      setIsLoding(true)
-      const data = await fetch('https://restcountries.com/v3.1/all');
-      const response = await data.json()
-      localStorage.setItem('allCountries', JSON.stringify(response))
-      setCountries(response)
-    } catch (err: any) {
-      console.log(err)
-      setError({
-        state: true,
-        message: err
-      })
-    } finally {
-      setIsLoding(false)
+
+    if (!localStorage.allCountries) {
+    
+      try {
+        setIsLoding(true)
+        const data = await fetch('https://restcountries.com/v3.1/all');
+        const response = await data.json()
+        localStorage.setItem('allCountries', JSON.stringify(response))
+        setCountries(response)
+      } catch (err: any) {
+        console.log(err)
+        setError({
+          state: true,
+          message: err
+        })
+      } finally {
+        setIsLoding(false)
+      }
+    } else {
+      const list = JSON.parse(localStorage.getItem('allCountries') as string)
+      setCountries(list)
     }
     
   }

@@ -7,6 +7,7 @@ html[data-theme='light'] {
   --bg-image: url('./images/icon-moon.svg');
   --theme-icon-width: 15px;
   --theme-icon-height: 15px;
+  --bg-color-preloader: #9bd9f3;
 }
 
 html[data-theme='dark'] {
@@ -18,6 +19,7 @@ html[data-theme='dark'] {
   --bg-image: url('./images/icons8-sun(1).svg');
   --theme-icon-width: 20px;
   --theme-icon-height: 20px;
+  --bg-color-preloader: #073042;
 }
 
 
