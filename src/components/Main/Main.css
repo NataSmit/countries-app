@@ -19,3 +19,8 @@
   color: inherit;
   display: block;
 }
+
+.main__error {
+  font-size: 25px;
+  color: red;
+}
