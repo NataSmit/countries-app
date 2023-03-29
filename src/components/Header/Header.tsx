@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 interface IHeaderProps {
   toggleTheme: () => void,
+  // Тему ещё можно попробовать типизировать не через String, а через enum (для тренировки ts)
   theme: string
 }
 

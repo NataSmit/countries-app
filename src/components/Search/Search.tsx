@@ -19,7 +19,7 @@ export default function Search({countries, setFilteredCountries}: ISearchProps) 
   ]
 
    const [searchValue, setSearchValue] = useState('');
-   const [region, setRegion] = useState<Option | any>();
+   const [region, setRegion] = useState<Option | any>(); // это any смущает, надо бы от него избавиться, иначе нет смысла в типе вообще
 
    useEffect(() => {
     filterCountries(searchValue, region)
