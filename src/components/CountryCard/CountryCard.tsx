@@ -7,6 +7,7 @@ interface ICountryCardProps {
 }
 
 export default function CountryCard({ country }: ICountryCardProps) {
+  // Прикольное использование inView! Как идея, еще анимацию на загрузку картинки (onLoad) добавить, чтобы плавно появлялась
   const { ref, inView } = useInView({
     threshold: 0.5,
     triggerOnce: true,
@@ -25,6 +26,7 @@ export default function CountryCard({ country }: ICountryCardProps) {
       </div>
       <div className="card__body">
         <h1 className="card__title">{country.name.official}</h1>
+        {/*Можно переделать абзац в список*/}
         <p className="card__info">
           <span className="card__info card__info_bold">Population:</span>{" "}
           {country.population}

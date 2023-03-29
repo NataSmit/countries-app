@@ -18,6 +18,7 @@ export default function CountryPge() {
       setCountry(data[0]);
     } catch (err) {
       console.log(err);
+      // тут бы еще запомнить, что произошла ошибка, и вывести на страницу сообщение об этом
     } finally {
       setIsLoding(false);
     }
@@ -39,7 +40,7 @@ export default function CountryPge() {
         <div className="country-page__body">
           <Preloader isLoading={isLoading} />
           {country?.name.common && (
-            <InfoCard country={country} key={country.name.common} />
+            <InfoCard country={country} key={country.name.common} /> // a key зачем?
           )}
         </div>
       </div>

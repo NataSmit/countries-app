@@ -31,6 +31,8 @@ export default function InfoCard({ country }: IInfoCardProps) {
   //country.currencies и country.name.nativeName имеют динамические свойства в объекте, поэтому
   //использую переменную
 
+
+  // так у тебя отображается только первая валюта, это точно то, что ты хотела?
   const dynamicCurrency = Object.keys(country.currencies)[0];
   const currencyValue = country.currencies[dynamicCurrency].name;
   const dynamicName = Object.keys(country.name.nativeName)[0];

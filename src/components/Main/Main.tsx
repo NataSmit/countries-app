@@ -16,6 +16,7 @@ export default function Main({ filteredCountries }: IMainProps) {
         localStorage.getItem("allCountries") as string
       );
     } catch (err) {
+      // в этом случае надо б почистить сторадж, раз там что-то невалидное
       console.log("parse err", err);
     }
   }

@@ -6,12 +6,16 @@ import Header from "./components/Header/Header";
 import Search from "./components/Search/Search";
 import Main from "./components/Main/Main";
 import Home from "./components/Home/Home";
+// Иногда ещё компоненты разбивают и делают отдельно папку /pages. Это не обязательно, но так проще не запутаться
 import CountryPage from "./components/CountryPage/CountryPage";
 import { useTheme } from "./hooks/useTheme";
 import { Routes, Route } from "react-router-dom";
 import Preloader from "./components/Preloader/Preloader";
 
 function App() {
+  // тема у тебя тут не используется, только прокидывается в шапку. Можно там и использовать useTheme тогда
+  // ещё можно сделать context с темой вместо обычного стейта
+  // Но потом я поняла, что так видимо ts для прокидывания стейта отрабатывается, так что ок)
   const { theme, setTheme } = useTheme();
   const [countries, setCountries] = useState<Country[]>([]);
   const [filteredCountries, setFilteredCountries] = useState<Country[]>([]);
@@ -38,6 +42,7 @@ function App() {
         setIsLoding(false);
       }
     } else {
+      // JSON.parse тоже может сломаться, если в сторадже что-то непонятное, тут тоже полезно try-catch добавить
       const list = JSON.parse(localStorage.getItem("allCountries") as string);
       setCountries(list);
     }

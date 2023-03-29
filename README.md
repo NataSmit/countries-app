@@ -9,3 +9,5 @@ The project is integrated with the [REST Countries API](https://restcountries.co
 - click on a country to see more detailed information on a separate page
 - click through to the border countries on the detail page
 - toggle the color scheme between light and dark mode
+
+## Сюда бы еще инструкцию, как запускать
