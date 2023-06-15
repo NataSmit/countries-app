@@ -35,6 +35,12 @@
   object-fit: cover;
 }
 
+.card__image-item_visible {
+  opacity: 1;
+  transition:1s ease-in;
+}
+
+
 .card__info {
   margin: 0 0 5px 0;
 }

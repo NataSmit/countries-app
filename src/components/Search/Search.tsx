@@ -1,6 +1,5 @@
-import { validateHeaderName } from 'http';
 import React, { useState, useEffect } from 'react';
-import Select, { OnChangeValue, ActionMeta } from 'react-select'
+import Select, { ActionMeta } from 'react-select'
 import { Option, Country } from '../../types/country'
 
 interface ISearchProps {
@@ -26,11 +25,6 @@ export default function Search({countries, setFilteredCountries}: ISearchProps) 
   }, [searchValue, region])
 
 
-   //const [filteredCountries, setFilteredCountries] = useState(countries)
-
-   //function onChange(val: OnChangeValue<Option, boolean>) {
-   //  setRegion((val as Option[]).map(v => v.value))
-   //}
 
   function onSelectChange(option: Option | null, actionMeta: ActionMeta<Option>) {
     if (option) {

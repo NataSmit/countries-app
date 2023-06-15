@@ -7,7 +7,7 @@ interface IInfoCardProps {
 }
 
 export default function InfoCard({ country }: IInfoCardProps) {
-  const languagesArr = Object.values(country.languages);
+  const languagesArr = country.languages ? Object.values(country.languages): [];
   const navigate = useNavigate();
   const borders = country.borders ? country.borders.join(",") : "";
   const [borderCountries, setBorderCountries] = useState<Country[]>([]);
@@ -31,10 +31,10 @@ export default function InfoCard({ country }: IInfoCardProps) {
   //country.currencies и country.name.nativeName имеют динамические свойства в объекте, поэтому
   //использую переменную
 
-  const dynamicCurrency = Object.keys(country.currencies)[0];
-  const currencyValue = country.currencies[dynamicCurrency].name;
-  const dynamicName = Object.keys(country.name.nativeName)[0];
-  const nativeNameCommon = country.name.nativeName[dynamicName].common;
+  const dynamicCurrency = country.currencies ? Object.keys(country.currencies)[0] : "";
+  const currencyValue = dynamicCurrency && country.currencies[dynamicCurrency].name;
+  const dynamicName = country.name.nativeName ? Object.keys(country.name.nativeName)[0] : "";
+  const nativeNameCommon = country.name.nativeName && country.name.nativeName[dynamicName].common;
 
   return (
     <div className="info-card__body">

@@ -1,12 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useTheme } from "../../hooks/useTheme"
 
-interface IHeaderProps {
-  toggleTheme: () => void,
-  theme: string
-}
 
-export default function Header({toggleTheme, theme}: IHeaderProps) {
+export default function Header() {
+  const { theme, setTheme } = useTheme();
+
+  function toggleTheme() {
+    setTheme(theme === "light" ? "dark" : "light");
+  }
+
   return (
     <header className='header'>
       <div className='header__container'>

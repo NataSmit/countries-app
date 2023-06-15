@@ -10,6 +10,7 @@ export default function CountryCard({ country }: ICountryCardProps) {
   const { ref, inView } = useInView({
     threshold: 0.5,
     triggerOnce: true,
+
   });
 
   return (
