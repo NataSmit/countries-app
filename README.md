@@ -13,7 +13,6 @@ The project is integrated with the [REST Countries API](https://restcountries.co
 ## Technologies
 
 - React, React Router, React Hooks
-- TypeScript
 - Custom Hooks
 - Virtualization (React Intersection Observer)
 - Grid, FlexBox
